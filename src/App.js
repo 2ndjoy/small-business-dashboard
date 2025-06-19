@@ -4,13 +4,13 @@ import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
 import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
-import Reports from "./pages/Reports"
+import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 
 function App() {
   return (
     <Router>
-      <div className="flex">
+      <div className="flex flex-col lg:flex-row">
         <Sidebar />
         <div className="flex-1 min-h-screen bg-gray-100 p-4">
           <Header />

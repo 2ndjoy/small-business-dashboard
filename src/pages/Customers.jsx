@@ -9,7 +9,7 @@ const Customers = () => {
     <div className="p-6 bg-white rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold mb-6">Customers</h1>
 
-      <table className="min-w-full border-collapse table-auto">
+      <table className="min-w-full table-auto border-collapse border border-gray-300">
         <thead className="bg-yellow-100 text-yellow-700">
           <tr>
             <th className="px-4 py-2 text-left">Name</th>
