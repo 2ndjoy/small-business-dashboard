@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import { useState, useEffect } from "react";
+import Customers from "./pages/Reports";
 
 function App() {
   // Check if dark mode is stored in localStorage, default to false if not
@@ -34,6 +35,7 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/reports" element={<Reports />} />
+            <Route path="/customers" element={<Customers />} />
             <Route path="/settings" element={<Settings setDarkMode={setDarkMode} darkMode={darkMode} />} />
           </Routes>
         </div>
