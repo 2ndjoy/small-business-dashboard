@@ -1,17 +1,31 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ setDarkMode, darkMode }) => {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="bg-white p-4 mb-4 rounded shadow-sm flex justify-between items-center">
-      <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+    <div className="bg-white dark:bg-gray-800 p-4 mb-4 rounded shadow-sm flex justify-between items-center">
+      <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Dashboard</h1>
+ {/* Dark Mode Toggle Button */}
+      <div className="lg:hidden">
+        <button
+          className="text-gray-700 dark:text-white p-2 rounded-md"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? (
+            <span className="text-2xl">🌙</span> // Moon icon for dark mode
+          ) : (
+            <span className="text-2xl">🌞</span> // Sun icon for light mode
+          )}
+        </button>
+      </div>
 
       {/* Dropdown menu button for mobile */}
       <div className="lg:hidden">
         <button
-          className="text-gray-700 p-2 rounded-md"
+          className="text-gray-700 dark:text-white p-2 rounded-md"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
@@ -23,30 +37,30 @@ const Header = () => {
 
         {/* Dropdown menu for mobile */}
         {isMenuOpen && (
-          <div className="absolute top-14 right-4 bg-white shadow-lg rounded-lg w-40 p-4">
+          <div className="absolute top-14 right-4 bg-white dark:bg-gray-800 shadow-lg rounded-lg w-40 p-4">
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/" className="text-gray-700 dark:text-white" onClick={() => setIsMenuOpen(false)}>
                   Dashboard
                 </Link>
               </li>
               <li>
-                <Link to="/orders" className="text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/orders" className="text-gray-700 dark:text-white" onClick={() => setIsMenuOpen(false)}>
                   Orders
                 </Link>
               </li>
               <li>
-                <Link to="/profile" className="text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/profile" className="text-gray-700 dark:text-white" onClick={() => setIsMenuOpen(false)}>
                   Profile
                 </Link>
               </li>
               <li>
-                <Link to="/reports" className="text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/reports" className="text-gray-700 dark:text-white" onClick={() => setIsMenuOpen(false)}>
                   Reports
                 </Link>
               </li>
               <li>
-                <Link to="/settings" className="text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/settings" className="text-gray-700 dark:text-white" onClick={() => setIsMenuOpen(false)}>
                   Settings
                 </Link>
               </li>
@@ -57,11 +71,11 @@ const Header = () => {
 
       {/* Desktop navigation */}
       <div className="hidden lg:flex space-x-4">
-        <Link to="/" className="text-gray-700">Dashboard</Link>
-        <Link to="/orders" className="text-gray-700">Orders</Link>
-        <Link to="/profile" className="text-gray-700">Profile</Link>
-        <Link to="/reports" className="text-gray-700">Reports</Link>
-        <Link to="/settings" className="text-gray-700">Settings</Link>
+        <Link to="/" className="text-gray-700 dark:text-white">Dashboard</Link>
+        <Link to="/orders" className="text-gray-700 dark:text-white">Orders</Link>
+        <Link to="/profile" className="text-gray-700 dark:text-white">Profile</Link>
+        <Link to="/reports" className="text-gray-700 dark:text-white">Reports</Link>
+        <Link to="/settings" className="text-gray-700 dark:text-white">Settings</Link>
       </div>
     </div>
   );
